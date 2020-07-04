@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Tela inicial</title>
+<title>Lista de Eventos</title>
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -16,15 +16,38 @@
 
 <body>
 
-	<div class="container">
+	<div class="container row">
 		<fieldset>
 			<legend>Navbar</legend>
 			<h5>
-				<a href="/salvar">Cadastro</a> 
-				&nbsp
-				<a href="/listaEventos">Lista</a>
+				<a href="/">Home</a>
 			</h5>
 		</fieldset>
+	</div>
+
+	<div class="container">
+		<table id="table-1" class="striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Data</th>
+					<th>Horario</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "e : ${eventos}">
+					<td th:text = "${e.eventoid}"></td>
+					<td th:text = "${e.nome}"></td>
+					<td th:text = "${e.local}"></td>
+					<td th:text = "${e.data}"></td>
+					<td th:text = "${e.horario}"></td>
+				</tr>
+			</tbody>
+			
+		</table>
 	</div>
 
 	<!--JavaScript at end of body for optimized loading-->

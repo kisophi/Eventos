@@ -1,7 +1,10 @@
 package com.akira.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,6 +33,14 @@ public class EventoController {
 	public String salvar(Evento e) {
 		er.save(e);
 		return "evento/formSalvar";
+	}
+	
+	//Salva os dados da tela de cadastro
+	@RequestMapping("/listaEventos")
+	public String listaEventos(Model model) {
+		List<Evento> eventos = er.findAll();
+		model.addAttribute("eventos", eventos);
+		return "evento/lista";
 	}
 	
 }
