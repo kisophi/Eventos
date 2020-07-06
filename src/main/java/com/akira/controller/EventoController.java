@@ -1,10 +1,12 @@
 package com.akira.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,7 +34,7 @@ public class EventoController {
 	@RequestMapping(value = "/salvar",method = RequestMethod.POST)
 	public String salvar(Evento e) {
 		er.save(e);
-		return "evento/formSalvar";
+		return "redirect:/listaEventos";
 	}
 	
 	//Salva os dados da tela de cadastro
@@ -42,5 +44,14 @@ public class EventoController {
 		model.addAttribute("eventos", eventos);
 		return "evento/lista";
 	}
+	
+	//Exluir Evento pelo ID
+		@RequestMapping("/exclui/{id}")
+		public String excluirEvento(@PathVariable("id") Integer eventoid) {
+			er.deleteById(eventoid);
+			return "redirect:/listaEventos";
+		}
+	
+	
 	
 }

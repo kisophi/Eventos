@@ -21,6 +21,8 @@
 			<legend>Navbar</legend>
 			<h5>
 				<a href="/">Home</a>
+				&nbsp
+				<a href="/salvar">Cadastro</a> 
 			</h5>
 		</fieldset>
 	</div>
@@ -34,6 +36,7 @@
 					<th>Local</th>
 					<th>Data</th>
 					<th>Horario</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			
@@ -44,6 +47,7 @@
 					<td th:text = "${e.local}"></td>
 					<td th:text = "${e.data}"></td>
 					<td th:text = "${e.horario}"></td>
+					<td><a th:href="@{/exclui/{id}(id=${e.eventoid})}">Excluir</a></td>
 				</tr>
 			</tbody>
 			
