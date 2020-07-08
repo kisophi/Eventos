@@ -6,12 +6,10 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <!--Import materialize.css-->
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"
+<link type="text/css" rel="stylesheet" href="/css/materialize.min.css"
 	media="screen,projection" />
-
 <!--Let browser know website is optimized for mobile-->
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
@@ -21,7 +19,7 @@
 			<legend>Navbar</legend>
 			<h5>
 				<a href="/">Home</a>
-				&nbsp
+				&nbsp;
 				<a href="/salvar">Cadastro</a> 
 			</h5>
 		</fieldset>
@@ -36,7 +34,11 @@
 					<th>Local</th>
 					<th>Data</th>
 					<th>Horario</th>
-					<th>Ações</th>
+					<th>X</th>
+					<th>E</th>
+					
+					
+
 				</tr>
 			</thead>
 			
@@ -48,6 +50,10 @@
 					<td th:text = "${e.data}"></td>
 					<td th:text = "${e.horario}"></td>
 					<td><a th:href="@{/exclui/{id}(id=${e.eventoid})}">Excluir</a></td>
+					<td><a th:href="@{/edita/{id}(id=${e.eventoid})}">Editar</a></td>
+					<!-- 
+					<td><a th:href="${(#mvc.url('EC#editaEvento').arg(0, e.eventoid)).build()}">Edita2</a></td>
+			 -->
 				</tr>
 			</tbody>
 			
@@ -55,6 +61,6 @@
 	</div>
 
 	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="/js/materialize.min.js"></script>
 </body>
 </html>

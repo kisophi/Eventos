@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="/css/materialize.min.css"
+	media="screen,projection" />
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+
+<body>
+
+	<div class="container row">
+		<fieldset>
+			<legend>Navbar</legend>
+			<h5>
+				<a href="/">Home</a> 
+				&nbsp; 
+				<a href="/listaEventos">Lista</a>
+			</h5>
+		</fieldset>
+	</div>
+
+	<div class="container">
+		<form class="col s9" th:action="@{/salvar}" method="post">
+			<div class="row">
+				<div class="input-field col s3">
+					<i class="material-icons prefix">people</i>
+					<input type="text" name="eventoid" th:field="*{evento.eventoid}" readonly="readonly">
+					<label>ID</label>
+				</div>
+				<div class="input-field col s6">
+					<i class="material-icons prefix">account_circle</i> 
+					<input type="text" name="nome" th:field="*{evento.nome}" autofocus="autofocus">
+					<label>Nome</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s3"> 
+					<i class="material-icons prefix">map</i> 
+					<input type="text" name="local" th:field="*{evento.local}"> 
+					<label>Local</label>
+				</div>
+
+				<div class="input-field col s3">
+					<i class="material-icons prefix">date_range</i> 
+					<input type="date" name="data" th:field="*{evento.data}"> 
+					<label>Data</label>
+				</div>
+
+				<div class="input-field col s3">
+					<i class="material-icons prefix">access_time</i> 
+					<input type="time" name="horario" th:field="*{evento.horario}"> 
+					<label>Horario</label>
+				</div>
+			</div>
+			&nbsp;
+			<div class="row">
+				<button class="btn waves-effect waves-light" type="submit">
+					Salvar <i class="material-icons right">save</i>
+				</button>
+			</div>
+		</form>
+	</div>
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="/js/materialize.min.js"></script>
+</body>
+</html>
